@@ -1,0 +1,54 @@
+{
+    "name": "webignition/yaml-document-set-parser",
+    "description": "Like symfony/yaml parsing but for when you have many documents in the same file/string",
+    "keywords": ["yaml", "parser", "collection", "set"],
+    "homepage": "https://github.com/webignition/yaml-document-set-parser",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jon Cram",
+            "email": "webignition@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "webignition\\YamlDocumentSetParser\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "webignition\\YamlDocumentSetParser\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "cs": [
+            "./vendor/bin/ecs check src tests --ansi --config ecs.php",
+            "./vendor/bin/phpcs"
+        ],
+        "cs-fix": [
+            "./vendor/bin/ecs check src tests --ansi --config ecs.php --fix"
+        ],
+        "static-analysis": "./vendor/bin/phpstan analyse --ansi",
+        "test": "./vendor/bin/phpunit --colors=always",
+        "ci": [
+            "@cs",
+            "@static-analysis",
+            "@test"
+        ]
+    },
+    "require": {
+        "php": ">=7.4",
+        "symfony/yaml": "^5.1"
+    },
+    "require-dev": {
+        "phpstan/extension-installer": "^1.0",
+        "phpstan/phpstan": "^0.12.40",
+        "phpunit/phpunit": "^9.3",
+        "squizlabs/php_codesniffer": "^3.5",
+        "symplify/easy-coding-standard": "^8.2"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace webignition\YamlDocumentSetParser;
 
+use webignition\YamlDocument\Document;
+
 class Parser
 {
     /**

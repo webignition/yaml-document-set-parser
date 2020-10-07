@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e0ca2017add9103f15c1cbdf6b32e408",
+    "content-hash": "00ec814fd00a3cf15932b26edd5da1dd",
     "packages": [
         {
             "name": "symfony/deprecation-contracts",
@@ -222,6 +222,55 @@
                 }
             ],
             "time": "2020-05-20T17:43:50+00:00"
+        },
+        {
+            "name": "webignition/yaml-document",
+            "version": "0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webignition/yaml-document.git",
+                "reference": "3c8c61722f91837292cac9cf744d348865f9fbf9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webignition/yaml-document/zipball/3c8c61722f91837292cac9cf744d348865f9fbf9",
+                "reference": "3c8c61722f91837292cac9cf744d348865f9fbf9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4",
+                "symfony/yaml": "^5.1"
+            },
+            "require-dev": {
+                "phpstan/extension-installer": "~1.0",
+                "phpstan/phpstan": "~0.12",
+                "phpunit/phpunit": "~9.4",
+                "squizlabs/php_codesniffer": "~3.5",
+                "symplify/easy-coding-standard": "~8.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "webignition\\YamlDocument\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jon Cram",
+                    "email": "webignition@gmail.com"
+                }
+            ],
+            "description": "g",
+            "homepage": "https://github.com/webignition/yaml-document",
+            "support": {
+                "issues": "https://github.com/webignition/yaml-document/issues",
+                "source": "https://github.com/webignition/yaml-document/tree/0.1"
+            },
+            "time": "2020-10-07T14:22:27+00:00"
         }
     ],
     "packages-dev": [
@@ -5762,5 +5811,5 @@
         "php": ">=7.4"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

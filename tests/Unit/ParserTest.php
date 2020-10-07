@@ -131,31 +131,6 @@ class ParserTest extends TestCase
                     ],
                 ],
             ],
-            'two documents, start and end delimiters with trailing whitespace' => [
-                'yaml' =>
-                    '--- ' . "\n" .
-                    '- item1.1' . "\n" .
-                    '- item1.2' . "\n" .
-                    '- item1.3' . "\n" .
-                    '...  ' . "\n" .
-                    '---   ' . "\n" .
-                    '- item2.1' . "\n" .
-                    '- item2.2' . "\n" .
-                    '- item2.3' . "\n" .
-                    '...    ',
-                'expectedParsedDocuments' => [
-                    [
-                        'item1.1',
-                        'item1.2',
-                        'item1.3',
-                    ],
-                    [
-                        'item2.1',
-                        'item2.2',
-                        'item2.3',
-                    ],
-                ],
-            ],
         ];
     }
 }

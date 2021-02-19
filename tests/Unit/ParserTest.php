@@ -15,11 +15,14 @@ class ParserTest extends TestCase
      * @param string $yaml
      * @param array<mixed> $expectedParsedDocuments
      */
-    public function testParse(string $yaml, array $expectedParsedDocuments)
+    public function testParse(string $yaml, array $expectedParsedDocuments): void
     {
         self::assertSame($expectedParsedDocuments, (new Parser())->parse($yaml));
     }
 
+    /**
+     * @return array[]
+     */
     public function parseDataProvider(): array
     {
         return [

@@ -10,20 +10,17 @@
          processIsolation="false"
          stopOnError="true"
          stopOnFailure="true"
-         bootstrap="vendor/autoload.php" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
 >
   <coverage includeUncoveredFiles="false" processUncoveredFiles="false">
     <include>
       <directory suffix=".php">./src</directory>
     </include>
   </coverage>
-
   <testsuites>
     <testsuite name="Default Test Suite">
-      <directory>tests/Unit</directory>
-      <directory>tests/Functional</directory>
-      <exclude>tests/build/</exclude>
-      <exclude>tests/Fixtures/</exclude>
+      <directory>tests</directory>
     </testsuite>
   </testsuites>
 </phpunit>

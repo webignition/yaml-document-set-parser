@@ -43,15 +43,12 @@
         "webignition/yaml-document": ">=0.2,<1"
     },
     "require-dev": {
-        "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan": "^0.12.77",
+        "phpstan/phpstan": "^1.4",
         "phpunit/phpunit": "^9.5",
         "squizlabs/php_codesniffer": "^3.5"
     },
     "config": {
-        "sort-packages": true,
-        "allow-plugins": {
-            "phpstan/extension-installer": true
-        }
+        "sort-packages": true
+
     }
 }

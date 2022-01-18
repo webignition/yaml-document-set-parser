@@ -4,75 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a234e2b7a16a926a1e57c29b6c11c545",
+    "content-hash": "d6bb1588caca6de9cff8aafe573478af",
     "packages": [
-        {
-            "name": "symfony/deprecation-contracts",
-            "version": "v2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "5fa56b4074d1ae755beb55617ddafe6f5d78f665"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/5fa56b4074d1ae755beb55617ddafe6f5d78f665",
-                "reference": "5fa56b4074d1ae755beb55617ddafe6f5d78f665",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.2-dev"
-                },
-                "thanks": {
-                    "name": "symfony/contracts",
-                    "url": "https://github.com/symfony/contracts"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "function.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "A generic function and convention to trigger deprecation notices",
-            "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/master"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2020-09-07T11:33:47+00:00"
-        },
         {
             "name": "symfony/polyfill-ctype",
             "version": "v1.22.1",
@@ -154,28 +87,27 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v5.2.3",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "338cddc6d74929f6adf19ca5682ac4b8e109cdb0"
+                "reference": "ed602f38b8636a2ea21af760d2578f3d2f92fc60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/338cddc6d74929f6adf19ca5682ac4b8e109cdb0",
-                "reference": "338cddc6d74929f6adf19ca5682ac4b8e109cdb0",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/ed602f38b8636a2ea21af760d2578f3d2f92fc60",
+                "reference": "ed602f38b8636a2ea21af760d2578f3d2f92fc60",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.2.5",
-                "symfony/deprecation-contracts": "^2.1",
-                "symfony/polyfill-ctype": "~1.8"
+                "php": ">=8.0.2",
+                "symfony/polyfill-ctype": "^1.8"
             },
             "conflict": {
-                "symfony/console": "<4.4"
+                "symfony/console": "<5.4"
             },
             "require-dev": {
-                "symfony/console": "^4.4|^5.0"
+                "symfony/console": "^5.4|^6.0"
             },
             "suggest": {
                 "symfony/console": "For validating YAML files using the lint command"
@@ -209,7 +141,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v5.2.3"
+                "source": "https://github.com/symfony/yaml/tree/v6.0.2"
             },
             "funding": [
                 {
@@ -225,32 +157,31 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-02-03T04:42:09+00:00"
+            "time": "2021-12-16T22:13:01+00:00"
         },
         {
             "name": "webignition/yaml-document",
-            "version": "0.2",
+            "version": "0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webignition/yaml-document.git",
-                "reference": "ca50e0dc9d8231934f0b236046f4ccdc1417521a"
+                "reference": "0e3ff9ee69f3f07181572c889921a171bfc5dce3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webignition/yaml-document/zipball/ca50e0dc9d8231934f0b236046f4ccdc1417521a",
-                "reference": "ca50e0dc9d8231934f0b236046f4ccdc1417521a",
+                "url": "https://api.github.com/repos/webignition/yaml-document/zipball/0e3ff9ee69f3f07181572c889921a171bfc5dce3",
+                "reference": "0e3ff9ee69f3f07181572c889921a171bfc5dce3",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.4|^8",
-                "symfony/yaml": "^5.2"
+                "php": "^8.0|^8.1",
+                "symfony/yaml": "^5.4|^6.0"
             },
             "require-dev": {
                 "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan": "^0.12.77",
+                "phpstan/phpstan": "^1.3",
                 "phpunit/phpunit": "^9.5",
-                "squizlabs/php_codesniffer": "^3.5",
-                "symplify/easy-coding-standard": "^9.1"
+                "squizlabs/php_codesniffer": "^3.5"
             },
             "type": "library",
             "autoload": {
@@ -272,9 +203,9 @@
             "homepage": "https://github.com/webignition/yaml-document",
             "support": {
                 "issues": "https://github.com/webignition/yaml-document/issues",
-                "source": "https://github.com/webignition/yaml-document/tree/0.2"
+                "source": "https://github.com/webignition/yaml-document/tree/0.3"
             },
-            "time": "2021-02-19T18:46:55+00:00"
+            "time": "2021-12-31T14:19:22+00:00"
         }
     ],
     "packages-dev": [

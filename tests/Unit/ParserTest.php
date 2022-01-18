@@ -12,7 +12,6 @@ class ParserTest extends TestCase
     /**
      * @dataProvider parseDataProvider
      *
-     * @param string $yaml
      * @param array<mixed> $expectedParsedDocuments
      */
     public function testParse(string $yaml, array $expectedParsedDocuments): void
@@ -31,8 +30,7 @@ class ParserTest extends TestCase
                 'expectedParsedDocuments' => [],
             ],
             'single document, no start or end delimiters' => [
-                'yaml' =>
-                    '- item1' . "\n" .
+                'yaml' => '- item1' . "\n" .
                     '- item2' . "\n" .
                     '- item3',
                 'expectedParsedDocuments' => [
@@ -44,8 +42,7 @@ class ParserTest extends TestCase
                 ],
             ],
             'single document, start delimiter only' => [
-                'yaml' =>
-                    '---' . "\n" .
+                'yaml' => '---' . "\n" .
                     '- item1' . "\n" .
                     '- item2' . "\n" .
                     '- item3',
@@ -58,8 +55,7 @@ class ParserTest extends TestCase
                 ],
             ],
             'single document, end delimiter only' => [
-                'yaml' =>
-                    '- item1' . "\n" .
+                'yaml' => '- item1' . "\n" .
                     '- item2' . "\n" .
                     '- item3' . "\n" .
                     '...',
@@ -72,8 +68,7 @@ class ParserTest extends TestCase
                 ],
             ],
             'single document, start and end delimiters' => [
-                'yaml' =>
-                    '---' . "\n" .
+                'yaml' => '---' . "\n" .
                     '- item1' . "\n" .
                     '- item2' . "\n" .
                     '- item3' . "\n" .
@@ -87,8 +82,7 @@ class ParserTest extends TestCase
                 ],
             ],
             'two documents, start delimiters only' => [
-                'yaml' =>
-                    '---' . "\n" .
+                'yaml' => '---' . "\n" .
                     '- item1.1' . "\n" .
                     '- item1.2' . "\n" .
                     '- item1.3' . "\n" .
@@ -110,8 +104,7 @@ class ParserTest extends TestCase
                 ],
             ],
             'two documents, start and end delimiters' => [
-                'yaml' =>
-                    '---' . "\n" .
+                'yaml' => '---' . "\n" .
                     '- item1.1' . "\n" .
                     '- item1.2' . "\n" .
                     '- item1.3' . "\n" .

@@ -38,9 +38,9 @@
         ]
     },
     "require": {
-        "php": ">=7.4|^8",
-        "symfony/yaml": "^5.2",
-        "webignition/yaml-document": ">=0.2,<1"
+        "php": "^8.0",
+        "symfony/yaml": "6.0.*",
+        "webignition/yaml-document": ">=0.3,<1"
     },
     "require-dev": {
         "phpstan/phpstan": "^1.4",

@@ -9,8 +9,6 @@ use webignition\YamlDocument\Document;
 class Parser
 {
     /**
-     * @param string $yaml
-     *
      * @return array<mixed>
      */
     public function parse(string $yaml): array

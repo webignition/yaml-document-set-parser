@@ -12,11 +12,11 @@ class ParserTest extends TestCase
     /**
      * @dataProvider parseDataProvider
      *
-     * @param array<mixed> $expectedParsedDocuments
+     * @param string[] $expected
      */
-    public function testParse(string $yaml, array $expectedParsedDocuments): void
+    public function testParse(string $content, array $expected): void
     {
-        self::assertSame($expectedParsedDocuments, (new Parser())->parse($yaml));
+        self::assertSame($expected, (new Parser())->parse($content));
     }
 
     /**
@@ -24,108 +24,61 @@ class ParserTest extends TestCase
      */
     public function parseDataProvider(): array
     {
+        $content = [
+            '- item1.1' . "\n" . '- item1.2' . "\n" . '- item1.3',
+            '- item2.1' . "\n" . '- item2.2' . "\n" . '- item2.3',
+        ];
+
         return [
             'empty' => [
-                'yaml' => '',
-                'expectedParsedDocuments' => [],
+                'content' => '',
+                'expected' => [],
             ],
             'single document, no start or end delimiters' => [
-                'yaml' => '- item1' . "\n" .
-                    '- item2' . "\n" .
-                    '- item3',
-                'expectedParsedDocuments' => [
-                    [
-                        'item1',
-                        'item2',
-                        'item3',
-                    ],
-                ],
+                'content' => $content[0],
+                'expected' => [$content[0]],
             ],
             'single document, start delimiter only' => [
-                'yaml' => '---' . "\n" .
-                    '- item1' . "\n" .
-                    '- item2' . "\n" .
-                    '- item3',
-                'expectedParsedDocuments' => [
-                    [
-                        'item1',
-                        'item2',
-                        'item3',
-                    ],
-                ],
+                'content' => <<< EOF
+                ---
+                {$content[0]}
+                EOF,
+                'expected' => [$content[0]],
             ],
             'single document, end delimiter only' => [
-                'yaml' => '- item1' . "\n" .
-                    '- item2' . "\n" .
-                    '- item3' . "\n" .
-                    '...',
-                'expectedParsedDocuments' => [
-                    [
-                        'item1',
-                        'item2',
-                        'item3',
-                    ],
-                ],
+                'content' => <<< EOF
+                {$content[0]}
+                ...
+                EOF,
+                'expected' => [$content[0]],
             ],
             'single document, start and end delimiters' => [
-                'yaml' => '---' . "\n" .
-                    '- item1' . "\n" .
-                    '- item2' . "\n" .
-                    '- item3' . "\n" .
-                    '...',
-                'expectedParsedDocuments' => [
-                    [
-                        'item1',
-                        'item2',
-                        'item3',
-                    ],
-                ],
+                'content' => <<< EOF
+                ---
+                {$content[0]}
+                ...
+                EOF,
+                'expected' => [$content[0]],
             ],
             'two documents, start delimiters only' => [
-                'yaml' => '---' . "\n" .
-                    '- item1.1' . "\n" .
-                    '- item1.2' . "\n" .
-                    '- item1.3' . "\n" .
-                    '---' . "\n" .
-                    '- item2.1' . "\n" .
-                    '- item2.2' . "\n" .
-                    '- item2.3',
-                'expectedParsedDocuments' => [
-                    [
-                        'item1.1',
-                        'item1.2',
-                        'item1.3',
-                    ],
-                    [
-                        'item2.1',
-                        'item2.2',
-                        'item2.3',
-                    ],
-                ],
+                'content' => <<< EOF
+                ---
+                {$content[0]}
+                ---
+                {$content[1]}
+                EOF,
+                'expected' => [$content[0], $content[1]],
             ],
             'two documents, start and end delimiters' => [
-                'yaml' => '---' . "\n" .
-                    '- item1.1' . "\n" .
-                    '- item1.2' . "\n" .
-                    '- item1.3' . "\n" .
-                    '...' . "\n" .
-                    '---' . "\n" .
-                    '- item2.1' . "\n" .
-                    '- item2.2' . "\n" .
-                    '- item2.3' . "\n" .
-                    '...',
-                'expectedParsedDocuments' => [
-                    [
-                        'item1.1',
-                        'item1.2',
-                        'item1.3',
-                    ],
-                    [
-                        'item2.1',
-                        'item2.2',
-                        'item2.3',
-                    ],
-                ],
+                'content' => <<< EOF
+                ---
+                {$content[0]}
+                ...
+                ---
+                {$content[1]}
+                ...
+                EOF,
+                'expected' => [$content[0], $content[1]],
             ],
         ];
     }

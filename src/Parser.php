@@ -10,7 +10,7 @@ class Parser
     private const DOCUMENT_END = '...';
 
     /**
-     * @return array<mixed>
+     * @return array<int, string>
      */
     public function parse(string $content): array
     {

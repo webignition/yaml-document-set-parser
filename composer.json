@@ -1,6 +1,6 @@
 {
     "name": "webignition/yaml-document-set-parser",
-    "description": "Like symfony/yaml parsing but for when you have many documents in the same file/string",
+    "description": "Separate a collection of yaml documents into an array of yaml documents",
     "keywords": ["yaml", "parser", "collection", "set"],
     "homepage": "https://github.com/webignition/yaml-document-set-parser",
     "type": "library",
@@ -38,9 +38,7 @@
         ]
     },
     "require": {
-        "php": "^8.1",
-        "symfony/yaml": "6.0.*",
-        "webignition/yaml-document": ">=0.3,<1"
+        "php": "^8.1"
     },
     "require-dev": {
         "phpstan/phpstan": "^1.4",

@@ -4,44 +4,41 @@ declare(strict_types=1);
 
 namespace webignition\YamlDocumentSetParser;
 
+use Symfony\Component\Yaml\Exception\ParseException;
 use webignition\YamlDocument\Document;
 
 class Parser
 {
     /**
+     * @throws ParseException
+     *
      * @return array<mixed>
      */
     public function parse(string $yaml): array
     {
-        $yaml = trim($yaml);
-        if ('' === $yaml) {
+        if ('' === trim($yaml)) {
             return [];
         }
 
         $parsedDocuments = [];
-        $currentDocument = new Document();
-
         $lines = explode("\n", $yaml);
+        $lineCount = count($lines);
 
-        foreach ($lines as $line) {
+        $currentLines = [];
+
+        foreach ($lines as $lineIndex => $line) {
             $isDocumentStart = Document::isDocumentStart($line);
             $isDocumentEnd = Document::isDocumentEnd($line);
-
-            if ($isDocumentStart) {
-                if (false === $currentDocument->isEmpty()) {
-                    $parsedDocuments[] = $currentDocument->parse();
-                }
-
-                $currentDocument = new Document();
-            }
+            $isLastLine = $lineIndex === $lineCount - 1;
 
             if (false === $isDocumentStart && false === $isDocumentEnd) {
-                $currentDocument = $currentDocument->append("\n" . $line);
+                $currentLines[] = $line;
             }
-        }
 
-        if (false === $currentDocument->isEmpty()) {
-            $parsedDocuments[] = $currentDocument->parse();
+            if (($isDocumentStart || $isLastLine) && [] !== $currentLines) {
+                $parsedDocuments[] = (new Document(implode("\n", $currentLines)))->parse();
+                $currentLines = [];
+            }
         }
 
         return $parsedDocuments;

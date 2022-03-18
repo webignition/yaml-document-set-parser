@@ -81,7 +81,7 @@ class ParserTest extends TestCase
                 'expected' => [$content[0], $content[1]],
             ],
             'three empty documents' => [
-                'content' => <<< EOF
+                'content' => <<< 'EOF'
                 ---
                 ...
                 ---

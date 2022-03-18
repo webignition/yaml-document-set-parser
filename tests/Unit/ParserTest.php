@@ -80,6 +80,30 @@ class ParserTest extends TestCase
                 EOF,
                 'expected' => [$content[0], $content[1]],
             ],
+            'three empty documents' => [
+                'content' => <<< 'EOF'
+                ---
+                ...
+                ---
+                ...
+                ---
+                ...
+                EOF,
+                'expected' => ['', '', ''],
+            ],
+            'two documents, start and end delimiters, with an empty document between' => [
+                'content' => <<< EOF
+                ---
+                {$content[0]}
+                ...
+                ---
+                ...
+                ---
+                {$content[1]}
+                ...
+                EOF,
+                'expected' => [$content[0], '', $content[1]],
+            ],
         ];
     }
 }

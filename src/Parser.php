@@ -14,31 +14,27 @@ class Parser
      */
     public function parse(string $content): array
     {
-        if ('' === trim($content)) {
+        $content = trim($content);
+        if ('' === $content) {
             return [];
         }
 
-        $parsedDocuments = [];
-        $lines = explode("\n", $content);
-        $lineCount = count($lines);
-
-        $currentLines = [];
-
-        foreach ($lines as $lineIndex => $line) {
-            $isDocumentStart = self::DOCUMENT_START === $line;
-            $isDocumentEnd = self::DOCUMENT_END === $line;
-            $isLastLine = $lineIndex === $lineCount - 1;
-
-            if (false === $isDocumentStart && false === $isDocumentEnd) {
-                $currentLines[] = $line;
-            }
-
-            if (($isDocumentStart || $isLastLine) && [] !== $currentLines) {
-                $parsedDocuments[] = implode("\n", $currentLines);
-                $currentLines = [];
-            }
+        if (
+            false === str_starts_with($content, self::DOCUMENT_START . "\n")
+            || false === str_ends_with($content, "\n" . self::DOCUMENT_END)
+        ) {
+            return [];
         }
 
-        return $parsedDocuments;
+        $documents = explode(self::DOCUMENT_START . "\n", $content);
+        array_shift($documents);
+
+        array_walk($documents, function (&$document) {
+            $document = rtrim($document);
+            $document = rtrim($document, '.');
+            $document = rtrim($document);
+        });
+
+        return $documents;
     }
 }

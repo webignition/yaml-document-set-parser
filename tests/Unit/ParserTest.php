@@ -36,21 +36,21 @@ class ParserTest extends TestCase
             ],
             'single document, no start or end delimiters' => [
                 'content' => $content[0],
-                'expected' => [$content[0]],
+                'expected' => [],
             ],
             'single document, start delimiter only' => [
                 'content' => <<< EOF
                 ---
                 {$content[0]}
                 EOF,
-                'expected' => [$content[0]],
+                'expected' => [],
             ],
             'single document, end delimiter only' => [
                 'content' => <<< EOF
                 {$content[0]}
                 ...
                 EOF,
-                'expected' => [$content[0]],
+                'expected' => [],
             ],
             'single document, start and end delimiters' => [
                 'content' => <<< EOF
@@ -67,7 +67,7 @@ class ParserTest extends TestCase
                 ---
                 {$content[1]}
                 EOF,
-                'expected' => [$content[0], $content[1]],
+                'expected' => [],
             ],
             'two documents, start and end delimiters' => [
                 'content' => <<< EOF
